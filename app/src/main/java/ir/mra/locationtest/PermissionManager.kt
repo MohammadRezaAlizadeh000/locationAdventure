@@ -5,8 +5,13 @@ import android.app.Activity
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 
-
-val Activity.IsLocationPermissionGranted get() = run {
+val Activity.LocationPermissions get() = run {
+    arrayOf(
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION
+    )
+}
+val Activity.IsLocationPermissionsGranted get() = run {
     ContextCompat.checkSelfPermission(
         this,
         Manifest.permission.ACCESS_FINE_LOCATION
